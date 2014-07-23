@@ -3,10 +3,11 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	request = require('request');
 
-var favotires = []
+var favorites = []
 var app = express()
 
 app.use(bodyParser.urlencoded());
+
 
 app.get('/', function(req,res){
 	res.render('index.ejs');
@@ -33,10 +34,17 @@ app.get('/search', function(req,res){
 		}
 	});
 });
+app.get('/favorites', function(req,res) {
+	res.render('favorites.ejs', {favorites: favorites})
+});
 
-app.post('/favotires', function(req,res){
-	favotires.push(movie.Title)
-	res.redirect('/favotires');
+app.post('/movie', function(req,res){
+
+	var title = req.body.Title;
+	console.log(title);
+	favorites.push(title);
+
+	res.redirect('/favorites');
 })
 
 app.listen(3000);

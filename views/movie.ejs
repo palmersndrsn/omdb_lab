@@ -4,12 +4,13 @@
 	<title></title>
 </head>
 <body>
-	<form action="favorite"
+
 	<h1><%= movie.Title %></h1>
 	<img src="<%= movie.Poster %>">
 	<p><%= movie.Plot %></p>
 	<p><%= movie.Actors %></p>
-  <form>
+
+  <form method="post" action="/movie">
     <input type="submit" value="Add to Favorites">
     <input type="hidden" value="<%= movie.Title %>" name="Title">
 </form>
