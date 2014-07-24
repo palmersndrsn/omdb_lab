@@ -39,7 +39,7 @@ app.get('/favorites', function(req,res) {
 });
 
 app.post('/movie', function(req,res){
-	
+
 	var title = req.body.Title;
 	favorites.push(title);
 
